@@ -1,0 +1,10 @@
+__pycache__/
+.idea/
+.pytest_cache/
+instance/
+venv/
+.git/
+.env
+SiteApp/tests/.pytest_cache/
+pgadmin/
+pgdata/
