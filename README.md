@@ -10,7 +10,7 @@
 
 # About
 
-This is simple flask app that i did while doing an internship in the company. It supposed to run on terminals in IPOPAT company.
+This is a simple flash application that asks for an employee number and displays the order for today or a selected time.
 
 In this project:
 + Factory flask app
