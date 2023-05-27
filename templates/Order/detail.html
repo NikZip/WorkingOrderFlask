@@ -1,0 +1,18 @@
+{% extends 'Order/base.html' %}
+{% block title %}
+    {% if order %}
+       Разнарядка номер - {{ order.pk }}
+    {% endif %}
+{% endblock title %}
+
+{% block nav_bar_left_if_user %}
+
+{% endblock nav_bar_left_if_user %}
+
+{% block content %}
+    {% if order %}
+        <div class="">
+            {{ order.creation_date }}
+        </div>
+    {% endif %}
+{% endblock content %}

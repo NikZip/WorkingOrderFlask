@@ -1,0 +1,51 @@
+
+<div class="d-flex justify-content-center text-center">
+    <table class="table table-bordered table-hover " >
+        <thead class="thead-dark">
+            <tr>
+                <th rowspan="2">Гос. №</th>
+                <th colspan="2">Работают</th>
+                <th rowspan="2">Маршрут</th>
+                <th colspan="3">Время работы</th>
+            </tr>
+            <tr>
+                <th><b>ФИО</b></th>
+                <th><b>Таб.№</b></th>
+                <th><b>Выезд</b></th>
+                <th><b>Заезд</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows for every raznar -->
+                {% for order in orders %}
+                    <tr data-href={% url 'order_detail' order.pk %}>
+                        <td>{{order.get_transport}}</td>
+                        <td>
+                        {% for worker in order.get_order_workers %}
+                                <div class="row">{{worker.full_name}}</div>
+                        {% endfor %}
+                        </td>
+                        <td>
+                        {% for worker in order.get_order_workers %}
+                                <div class="row">{{worker.personal_index}}</div>
+                        {% endfor %}
+                        </td>
+                        <td>{{order.get_route}}</td>
+                        <td>{{ order.departure_time|time:"H:i" }}</td>
+                        <td>{{ order.arrival_time|time:"H:i" }}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var tableRows = document.querySelectorAll("tr[data-href]");
+    tableRows.forEach(function(row) {
+      row.addEventListener("click", function() {
+        window.location.href = this.dataset.href;
+      });
+    });
+  });
+</script>
